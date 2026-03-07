@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イラン情勢 金融市場影響レポート 2026.03.07</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f7f6f2;
+    --bg2: #efeee9;
+    --bg3: #e5e3dc;
+    --border: #d4d1c8;
+    --border2: #b8b5ab;
+    --text: #2a2820;
+    --text2: #6b6760;
+    --text3: #9a9790;
+    --accent: #8a6830;
+    --accent2: #6a4810;
+    --red: #b83028;
+    --red2: #a02020;
+    --blue: #2858a0;
+    --blue2: #184890;
+    --green: #287848;
+    --green2: #186838;
+    --orange: #a05828;
+    --orange2: #904818;
+    --white: #1a1815;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(180deg, #eceae3 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(138,104,48,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(40,88,160,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  .header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+  }
+
+  .header-meta {
+    margin-top: 24px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* ナビ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 246, 242, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex: 1;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-hamburger {
+    display: none;
+    margin-left: auto;
+    padding: 0 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--text2);
+  }
+
+  /* コンテナ */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* セクション */
+  .section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 2px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+
+  /* サマリーグリッド */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .summary-box {
+    background: var(--bg2);
+    padding: 24px;
+  }
+
+  .summary-box-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .summary-box-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .summary-box-value.red { color: var(--red2); }
+  .summary-box-value.orange { color: var(--orange2); }
+  .summary-box-value.accent { color: var(--accent2); }
+  .summary-box-value.blue { color: var(--blue2); }
+  .summary-box-value.green { color: var(--green2); }
+
+  .summary-box-note {
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .summary-box-change {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .change-up { color: var(--red2); }
+  .change-down { color: var(--green2); }
+
+  /* データテーブル */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .data-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+    background: var(--bg2);
+  }
+
+  .data-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: rgba(0,0,0,0.02); }
+
+  .td-label {
+    font-weight: 500;
+    color: var(--white);
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+
+  .td-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .td-num.red { color: var(--red2); }
+  .td-num.green { color: var(--green2); }
+  .td-num.orange { color: var(--orange2); }
+  .td-num.accent { color: var(--accent2); }
+
+  /* タイムラインテーブル */
+  .tl-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .tl-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tl-table tr:last-child { border-bottom: none; }
+  .tl-table tr:hover td { background: rgba(0,0,0,0.02); }
+
+  .tl-table td {
+    padding: 14px 16px;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+
+  .tl-date-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    white-space: nowrap;
+    width: 100px;
+    border-right: 1px solid var(--border);
+  }
+
+  .tl-asset-cell {
+    width: 120px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    border-right: 1px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .tl-content-cell {
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  /* 2カラムグリッド */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .col-box {
+    background: var(--bg2);
+    padding: 24px;
+  }
+
+  .col-box-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .col-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    gap: 12px;
+  }
+
+  .col-item:last-child { border-bottom: none; }
+  .col-item-label { color: var(--text2); flex: 1; }
+  .col-item-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .col-item-value.red { color: var(--red2); }
+  .col-item-value.green { color: var(--green2); }
+  .col-item-value.orange { color: var(--orange2); }
+  .col-item-value.accent { color: var(--accent2); }
+
+  /* 予測ブロック */
+  .forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .forecast-box {
+    background: var(--bg2);
+    padding: 20px 24px;
+  }
+
+  .forecast-source {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .forecast-content {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .forecast-number {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--red2);
+    display: block;
+    margin: 6px 0 4px;
+  }
+
+  /* 監視指標 */
+  .watch-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .watch-item {
+    display: grid;
+    grid-template-columns: 40px 160px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .watch-item:last-child { border-bottom: none; }
+
+  .watch-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--border2);
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    border-right: 1px solid var(--border);
+  }
+
+  .watch-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .watch-content {
+    padding: 16px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* 注記 */
+  .note-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-top: 24px;
+  }
+
+  /* ハイライト */
+  .hl { color: var(--accent2); font-weight: 500; }
+  .hl-red { color: var(--red2); font-weight: 500; }
+  .hl-green { color: var(--green2); font-weight: 500; }
+  .hl-blue { color: var(--blue2); font-weight: 500; }
+
+  /* フッター */
+  .footer {
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* ハンバーガー・レスポンシブ */
+  @media (max-width: 768px) {
+    .header { padding: 36px 20px 28px; }
+    .header h1 { font-size: 20px; line-height: 1.4; }
+    .header-sub { font-size: 12px; }
+    .header-meta { gap: 16px; margin-top: 16px; }
+    .meta-value { font-size: 11px; }
+
+    .container { padding: 0 16px; }
+
+    .nav { padding: 0 16px; flex-wrap: wrap; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .nav-links a:last-child { border-bottom: none; }
+
+    .section { padding: 36px 0; }
+    .section-title { font-size: 17px; }
+
+    .summary-grid { grid-template-columns: 1fr 1fr; }
+    .summary-box { padding: 14px; }
+    .summary-box-value { font-size: 18px; }
+
+    .two-col { grid-template-columns: 1fr; }
+    .col-box { padding: 16px; }
+
+    .forecast-grid { grid-template-columns: 1fr; }
+
+    .tl-table td { padding: 10px 10px; }
+    .tl-date-cell { width: 72px; font-size: 10px; }
+    .tl-asset-cell { width: 80px; font-size: 10px; }
+    .tl-content-cell { font-size: 12px; }
+
+    .watch-item { grid-template-columns: 28px 1fr; }
+    .watch-label { display: none; }
+    .watch-num { padding: 12px; font-size: 14px; }
+    .watch-content { padding: 12px; font-size: 12px; }
+
+    .data-table thead { display: none; }
+    .data-table tr { display: block; border: 1px solid var(--border); margin-bottom: 8px; background: var(--bg2); }
+    .data-table td { display: block; border-bottom: 1px solid var(--border); padding: 8px 12px; font-size: 12px; }
+    .data-table td:last-child { border-bottom: none; }
+
+    .footer { padding: 24px 16px; font-size: 10px; }
+  }
+
+  @media (max-width: 400px) {
+    .summary-grid { grid-template-columns: 1fr; }
+    .tl-asset-cell { display: none; }
+  }
+</style>
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+</script>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="container">
+    <div class="header-label">Market Impact Report · Iran Crisis 2026</div>
+    <h1>イラン情勢 金融市場影響レポート</h1>
+    <div class="header-sub">エピック・フューリー作戦開始（2026.02.28）から第8日（2026.03.07）時点</div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">Report Date</span>
+        <span class="meta-value">2026.03.07</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Operation Day</span>
+        <span class="meta-value">D+8</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Scope</span>
+        <span class="meta-value">金融市場・エネルギー・実体経済への影響</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sources</span>
+        <span class="meta-value">Nikkei / Bloomberg / GS / JPMorgan / Schroders</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ナビ -->
+<nav class="nav">
+  <div class="nav-links" id="navLinks">
+    <a href="#snapshot">市場概況</a>
+    <a href="#timeline">時系列</a>
+    <a href="#energy">エネルギー</a>
+    <a href="#japan">日本経済</a>
+    <a href="#stagflation">スタグフレーション</a>
+    <a href="#forecast">機関予測</a>
+    <a href="#watchlist">監視指標</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleNav()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="container">
+
+  <!-- 市場概況スナップショット -->
+  <section class="section" id="snapshot">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">市場概況スナップショット（D+8時点）</h2>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-box">
+        <div class="summary-box-label">WTI原油（期近）</div>
+        <div class="summary-box-value red">$92台後半</div>
+        <div class="summary-box-change change-up">攻撃前 $67 → +38%</div>
+        <div class="summary-box-note">3月6日・2023年9月以来の高水準</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">JKM（アジアLNG）</div>
+        <div class="summary-box-value red">$21/MMBtu</div>
+        <div class="summary-box-change change-up">攻撃前 $11 → +91%</div>
+        <div class="summary-box-note">カタールLNG停止の直撃</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">欧州TTF（天然ガス）</div>
+        <div class="summary-box-value orange">一時 +70%</div>
+        <div class="summary-box-change change-up">カタール復旧見通しで反落後も高水準</div>
+        <div class="summary-box-note">3月5日カタール「数週間で復旧」報道後に8%安</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">NYダウ（週間）</div>
+        <div class="summary-box-value red">47,501ドル</div>
+        <div class="summary-box-change change-up">▲453ドル（3月6日）・週間▲2,000ドル超</div>
+        <div class="summary-box-note">一時900ドル安まで下落</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">日経平均（週間）</div>
+        <div class="summary-box-value red">53,874円</div>
+        <div class="summary-box-change change-up">高値63,000台から▲約9,000円</div>
+        <div class="summary-box-note">3月3日に年初来最大下落（▲6.33%）</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">ドル円</div>
+        <div class="summary-box-value orange">157円台</div>
+        <div class="summary-box-change change-up">有事の円買い終焉・円安継続</div>
+        <div class="summary-box-note">エネルギー輸入コスト増で円売り圧力</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">米10年国債利回り</div>
+        <div class="summary-box-value green">4.1%台</div>
+        <div class="summary-box-change change-down">NFPショックで低下（前日比▲0.04%）</div>
+        <div class="summary-box-note">景気後退懸念による債券買い</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">ゴールド</div>
+        <div class="summary-box-value accent">5,100ドル台</div>
+        <div class="summary-box-change change-up">一時5,400ドル→マージンコール売りで急落</div>
+        <div class="summary-box-note">買い戻しが入り下値を支える</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">原油タンカー運賃</div>
+        <div class="summary-box-value red">過去最高値</div>
+        <div class="summary-box-change change-up">ホルムズ封鎖・保険停止が直撃</div>
+        <div class="summary-box-note">喜望峰迂回で航海日数+2週間</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">バルチック海運指数</div>
+        <div class="summary-box-value orange">2ヶ月ぶり高値圏</div>
+        <div class="summary-box-change change-up">海上輸送コスト全般が上昇</div>
+        <div class="summary-box-note">戦争割増・燃料サーチャージが加算</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">米ガソリン価格（全国平均）</div>
+        <div class="summary-box-value red">$3.19/ガロン</div>
+        <div class="summary-box-change change-up">1ヶ月前比 +10%</div>
+        <div class="summary-box-note">軽油は2年ぶり高値</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">信用買い残（東証）</div>
+        <div class="summary-box-value orange">5.5兆円</div>
+        <div class="summary-box-change change-up">過去最高水準・未解消</div>
+        <div class="summary-box-note">下落局面での需給悪化リスク</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 時系列 -->
+  <section class="section" id="timeline">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">市場への影響タイムライン</h2>
+    </div>
+
+    <table class="tl-table">
+      <tbody>
+        <tr>
+          <td class="tl-date-cell">02.28<br>開戦</td>
+          <td class="tl-asset-cell">原油・株</td>
+          <td class="tl-content-cell">エピック・フューリー作戦開始。原油が急騰開始。$67→週内に$80台へ。世界主要株式市場が下落。損保大手各社が戦争リスク補償の提供を即日停止。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.01</td>
+          <td class="tl-asset-cell">海運・LNG</td>
+          <td class="tl-content-cell">日本海運3社（日本郵船・商船三井・川崎汽船）が中東航行を停止。コンテナ船大手APモラー・マースクが喜望峰迂回に切り替え。タンカー運賃が急騰開始。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.02</td>
+          <td class="tl-asset-cell">LNG・原油</td>
+          <td class="tl-content-cell">ホルムズ封鎖宣言。カタール・ラスラファンLNG基地停止（世界供給の約20%）。JKM $11→$21へ急騰（+91%）。欧州TTF一時+70%。サウジ・ラスタヌラ製油所へのドローン攻撃でアラムコ株が急落。イラクがルマイラ油田で日量300万バレルの減産開始。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.03</td>
+          <td class="tl-asset-cell">日本株・金</td>
+          <td class="tl-content-cell">日経平均が▲6.33%（年初来最大）、53,874円へ。ゴールドが5,400ドルの高値をつけた後、マージンコール発生による現金化売りで5,100ドルへ急落。原油が$85に到達（1年7ヶ月ぶり高値）。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.04</td>
+          <td class="tl-asset-cell">原油・政策</td>
+          <td class="tl-content-cell">米政府がタンカー護衛を表明→原油一時軟調。ただし海運業界「停戦なしに通航しない」と表明し効果限定的。DFCへの政治リスク保険提供の指示。フェドウォッチで6月利下げ予想が急落。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.05</td>
+          <td class="tl-asset-cell">LNG・株</td>
+          <td class="tl-content-cell">NYTの停戦交渉報道で欧州株が1〜2%反発。カタールLNG「数週間で復旧」見通しでTTFが8%安。米国産LNG船2隻が大西洋の中間地点でアジア向けへ針路変更。ベンチャーグローバル株が+25%急騰。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.06</td>
+          <td class="tl-asset-cell">原油・米株</td>
+          <td class="tl-content-cell">WTIが一時$92台後半に上昇（2023年9月以来の高水準）。カタールエネルギー相が「数日以内に生産停止・150ドルへ」と発言（FT報道）。クウェートが油田減産開始（WSJ）。DFCが200億ドルの保険提供を発表。米財務省がインドへのロシア産原油購入を30日間容認（対ロシア制裁の実質的緩和）。ダウ一時900ドル安・終値▲453ドル。</td>
+        </tr>
+        <tr>
+          <td class="tl-date-cell">03.07<br>D+8</td>
+          <td class="tl-asset-cell">雇用・債券</td>
+          <td class="tl-content-cell">2月NFP▲9.2万人（市場予想+5〜6万人）を受けてスタグフレーション警戒が急浮上。民間部門▲8.6万人はコロナ禍除けばリーマン危機以来の落ち込み。失業率4.4%に上昇。米10年国債利回りが4.1%台へ低下。フェドウォッチで6月金利据え置き予想が前日比10%以上低下。ブラックロック・マイクロン各7%安・アマゾン3%安。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- エネルギー需給 -->
+  <section class="section" id="energy">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">エネルギー需給の物理的制約</h2>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 24px;">
+      <div class="col-box">
+        <div class="col-box-title">ホルムズ海峡の規模</div>
+        <div class="col-item">
+          <span class="col-item-label">日量通過量（石油合計）</span>
+          <span class="col-item-value red">1,900万バレル</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">世界海上石油シェア</span>
+          <span class="col-item-value red">25%</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">世界LNGシェア</span>
+          <span class="col-item-value red">20%</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">世界海上貿易額（金額）</span>
+          <span class="col-item-value orange">2%が利用不能</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">代替輸送能力（合計）</span>
+          <span class="col-item-value accent">330〜340万バレル/日</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">代替率</span>
+          <span class="col-item-value red">約18%</span>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-title">産油国の貯蔵能力限界</div>
+        <div class="col-item">
+          <span class="col-item-label">6カ国合計（現状維持）</span>
+          <span class="col-item-value red">26日間</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">代替輸送込み（JPモルガン）</span>
+          <span class="col-item-value red">平均33日間</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">対象国</span>
+          <span class="col-item-value accent">サウジ・UAE・イラク・クウェート・カタール・イラン</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">イラク（ルマイラ油田）</span>
+          <span class="col-item-value orange">日量300万バレル減産開始済</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">クウェート</span>
+          <span class="col-item-value orange">一部油田で減産開始（3月6日）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">物理的節目（4月初旬）</span>
+          <span class="col-item-value red">強制減産の開始時期</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-box-title">サウジの代替ルート（東西パイプライン）</div>
+        <div class="col-item">
+          <span class="col-item-label">主要港ラスタヌラの輸送量</span>
+          <span class="col-item-value accent">650万バレル/日</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">東西パイプライン総容量</span>
+          <span class="col-item-value accent">500万バレル/日</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">既存使用分</span>
+          <span class="col-item-value accent">200万バレル/日</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">余剰輸送能力</span>
+          <span class="col-item-value orange">300万バレル/日弱</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">ヤンブー港の積み出しペース</span>
+          <span class="col-item-value green">250万バレル/日（過去最高ペース）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">UAEの代替能力</span>
+          <span class="col-item-value orange">40万バレル/日のみ</span>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-title">各国の石油備蓄（IEA・2025年6月時点）</div>
+        <div class="col-item">
+          <span class="col-item-label">OECD平均</span>
+          <span class="col-item-value accent">87日分</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">日本</span>
+          <span class="col-item-value green">175日分（OECD最高水準）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">オランダ</span>
+          <span class="col-item-value green">176日分</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">オーストラリア</span>
+          <span class="col-item-value red">35日分</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">チリ</span>
+          <span class="col-item-value red">31日分</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">日本のLNG在庫</span>
+          <span class="col-item-value red">約3週間分（石油と非対称）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 日本経済への影響 -->
+  <section class="section" id="japan">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">日本経済への影響</h2>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 24px;">
+      <div class="col-box">
+        <div class="col-box-title">数値試算</div>
+        <div class="col-item">
+          <span class="col-item-label">貿易赤字拡大（原油90〜100ドル時）</span>
+          <span class="col-item-value red">年間約10兆円</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">（参考：2025年の貿易赤字）</span>
+          <span class="col-item-value accent">約2.5兆円</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">GDP押し下げ（封鎖1年・140ドル想定）</span>
+          <span class="col-item-value red">▲0.65%</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">先進国インフレ率への影響</span>
+          <span class="col-item-value orange">+0.7%ポイント</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">（90〜100ドル時・英キャピタル・エコノミクス）</span>
+          <span class="col-item-value accent">—</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">日本関係船（ペルシャ湾内停泊）</span>
+          <span class="col-item-value orange">44隻（うち約30隻がタンカー・LNG船）</span>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-title">円安・為替への影響</div>
+        <div class="col-item">
+          <span class="col-item-label">ドル円（D+8時点）</span>
+          <span class="col-item-value red">157円台</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">有事の円買いの消滅</span>
+          <span class="col-item-value orange">エネルギー輸入コスト増が円売り圧力に</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">円安の輸入コストへの影響</span>
+          <span class="col-item-value red">原油高＋円安の二重苦</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">オルカン（全世界株）保有者</span>
+          <span class="col-item-value green">実質外貨建て・円換算では上昇</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">東証信用買い残</span>
+          <span class="col-item-value red">5.5兆円（過去最高・未解消）</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>企業・機関</th>
+          <th>発表内容</th>
+          <th>影響</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-label">三菱ガス化学</td>
+          <td>サウジからのメタノール調達が不能（3月3日発表）</td>
+          <td>石油化学セクター全体への波及を示唆</td>
+        </tr>
+        <tr>
+          <td class="td-label">コマツ</td>
+          <td>「長期化シナリオも想定しなければならない」（執行役員）</td>
+          <td>LNGを使う鉄鋼コスト上昇→北米事業に間接影響</td>
+        </tr>
+        <tr>
+          <td class="td-label">日本郵船・商船三井・川崎汽船</td>
+          <td>中東航行を即日停止（3月1日）</td>
+          <td>喜望峰迂回→コスト増・納期遅延</td>
+        </tr>
+        <tr>
+          <td class="td-label">日本海運業界</td>
+          <td>「護衛があっても停戦なしには通航しない」</td>
+          <td>DFCの保険提供（3.1兆円）の実効性に疑問</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- スタグフレーション -->
+  <section class="section" id="stagflation">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">スタグフレーションリスクとFRBジレンマ</h2>
+    </div>
+
+    <div class="two-col" style="margin-bottom: 24px;">
+      <div class="col-box">
+        <div class="col-box-title">2月雇用統計（NFP）ショック</div>
+        <div class="col-item">
+          <span class="col-item-label">非農業部門就業者数</span>
+          <span class="col-item-value red">▲9.2万人</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">市場予想</span>
+          <span class="col-item-value accent">+5〜6万人</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">乖離幅</span>
+          <span class="col-item-value red">約▲15万人</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">民間部門</span>
+          <span class="col-item-value red">▲8.6万人（約5年ぶりの落ち込み）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">（コロナ禍除けばリーマン危機以来）</span>
+          <span class="col-item-value accent">—</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">失業率</span>
+          <span class="col-item-value red">4.4%（上昇）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">直近3ヶ月平均伸び</span>
+          <span class="col-item-value red">6,000人</span>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-title">インフレ圧力の複合要因</div>
+        <div class="col-item">
+          <span class="col-item-label">PCE物価指数（2025年12月）</span>
+          <span class="col-item-value red">前年比+2.9%（目標2%超）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">WTI原油</span>
+          <span class="col-item-value red">$92台（攻撃前比+38%）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">トランプ関税の価格転嫁</span>
+          <span class="col-item-value orange">継続中</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">ガソリン価格（全国平均）</span>
+          <span class="col-item-value orange">$3.19/ガロン（+10%/月）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">食料品価格（尿素輸入遅延）</span>
+          <span class="col-item-value orange">3〜4月の作付けシーズンに影響</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-box">
+        <div class="col-box-title">FRBの政策ジレンマ</div>
+        <div class="col-item">
+          <span class="col-item-label">利下げした場合</span>
+          <span class="col-item-value orange">景気支援○・インフレ悪化×</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">利上げした場合</span>
+          <span class="col-item-value orange">インフレ抑制○・景気悪化×</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">据え置きした場合</span>
+          <span class="col-item-value orange">両問題を放置</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">4月FOMC（パウエル最後）</span>
+          <span class="col-item-value accent">利下げ見送りが市場コンセンサス（約8割）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">6月金利据え置き予想</span>
+          <span class="col-item-value red">55.6%（前日比▲10%以上低下）</span>
+        </div>
+      </div>
+      <div class="col-box">
+        <div class="col-box-title">ウォーシュ次期FRB議長</div>
+        <div class="col-item">
+          <span class="col-item-label">就任時期</span>
+          <span class="col-item-value accent">2026年春（パウエル任期後）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">指名後の公の場への登場</span>
+          <span class="col-item-value red">ゼロ回（異例）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">最初の公式発言の場</span>
+          <span class="col-item-value accent">上院公聴会（承認審査）</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">初の政策判断</span>
+          <span class="col-item-value accent">6月FOMC</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">過去の性向</span>
+          <span class="col-item-value orange">リーマン危機時は引き締め派</span>
+        </div>
+        <div class="col-item">
+          <span class="col-item-label">スタグフレーション下での方針</span>
+          <span class="col-item-value red">不明・最大の不確実性</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 機関投資家予測 -->
+  <section class="section" id="forecast">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">主要機関の市場予測</h2>
+    </div>
+
+    <div class="forecast-grid" style="margin-bottom: 24px;">
+      <div class="forecast-box">
+        <div class="forecast-source">Goldman Sachs（3月1日・4日）</div>
+        <div class="forecast-content">
+          パイプライン余剰活用なし・備蓄放出なしの場合、原油価格は
+          <span class="forecast-number">1ヶ月で+$15</span>
+          余剰能力フル稼働・日量200万バレルの備蓄放出でも+$10の上昇余地。封鎖が1ヶ月超継続すれば「ブレント原油が100ドルに達する可能性が高い」。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">Schroders（英）</div>
+        <div class="forecast-content">
+          海峡へのアクセス制限が継続した場合、
+          <span class="forecast-number">4〜5週間で $100〜120</span>
+          への上昇を予想。短期的な混乱は物流網の弾力性で吸収可能だが、エネルギー高止まりが続けば「実質所得の低下・利下げ見送りを通じ中期的に世界貿易を下押しする」。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">JPMorgan</div>
+        <div class="forecast-content">
+          産油国の貯蔵能力の限界は現状維持なら26日間、代替輸送込みで平均33日間。強制減産が始まれば
+          <span class="forecast-number">供給さらに減少・価格上昇加速</span>
+          「貯蔵できなくなれば生産を止めざるを得なくなる」（グローバル商品戦略ヘッド）。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">野村総合研究所</div>
+        <div class="forecast-content">
+          封鎖が1年継続・原油140ドル想定で
+          <span class="forecast-number">日本GDP ▲0.65%</span>
+          の押し下げ。日本経済への打撃は先進国の中で最大級と試算。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">みずほ銀行（唐鎌氏）</div>
+        <div class="forecast-content">
+          原油90〜100ドルが継続した場合、日本の貿易赤字は
+          <span class="forecast-number">年間約10兆円</span>
+          2025年の約4倍規模。円安と組み合わさり輸入コストの二重苦が継続。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">Capital Economics（英）</div>
+        <div class="forecast-content">
+          原油90〜100ドル時に先進国のインフレ率を
+          <span class="forecast-number">+0.7%ポイント</span>
+          押し上げると試算。「物流網は過去の危機で弾力性を高めており短期的な混乱は吸収可能だが、エネルギー高止まりは中期的に世界貿易を下押しする」。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">カタールエネルギー相（FT・3月6日）</div>
+        <div class="forecast-content">
+          「湾岸諸国のエネルギー輸出業者は数日以内に生産を停止し、
+          <span class="forecast-number">原油価格は $150 まで上昇する</span>
+          」と予測。産油国当事者からの最も強いシグナル。
+        </div>
+      </div>
+      <div class="forecast-box">
+        <div class="forecast-source">Rosenberg Research</div>
+        <div class="forecast-content">
+          NFPショックを受け「FRB当局者が語るような
+          <span class="forecast-number">労働市場の安定化は全く見られない</span>
+          明らかに縮小局面にある」。スタグフレーションリスクを強く警告。
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>LNG市場の構造変化：米国産LNGの「棚ぼた」需要</strong><br>
+      ベンチャーグローバルをはじめとする米国産LNGはヘンリーハブ連動で欧州・アジア産と比較して2〜3割安く、仕向け地条項なしで転売が可能。カタールの供給停止を受け米国産LNG2隻が欧州向けからアジア向けへ針路を変更。ベンチャーグローバル株は+25%急騰。米国の新規LNG輸出基地6カ所の建設決定（年6,000万トン規模）が「エネルギーの支配」政策として追い風を受ける構図。
+    </div>
+  </section>
+
+  <!-- 監視指標 -->
+  <section class="section" id="watchlist">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">市場の監視指標</h2>
+    </div>
+
+    <div class="watch-list">
+      <div class="watch-item">
+        <div class="watch-num">1</div>
+        <div class="watch-label">原油価格</div>
+        <div class="watch-content"><strong>原油100ドルの突破タイミング</strong>：ゴールドマン・JPモルガン・シュローダーの試算が収束する最重要の転換点。産油国の強制減産が始まれば需給が急激に引き締まる。カタールエネルギー相の「数日以内に生産停止」発言の真偽確認が来週の最優先。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">2</div>
+        <div class="watch-label">産油国減産</div>
+        <div class="watch-content"><strong>貯蔵限界（26〜33日）への到達</strong>：3月末〜4月初旬が物理的な節目。タンクが満杯になれば産油国は生産停止を余儀なくされ、価格上昇が加速する。イラク・クウェートに続く減産の連鎖が始まるかどうか。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">3</div>
+        <div class="watch-label">米中会談</div>
+        <div class="watch-content"><strong>3月末の米中会談</strong>：最初の外交的転換点。停戦・外交的解決への期待が高まれば原油が急落するリスク。エネルギー安全保障で打撃を受けている中国が仲介の功績を得る形での着地が最も現実的なシナリオ。市場にとって最大のダウンサイドリスクとアップサイドリスクが同時に存在。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">4</div>
+        <div class="watch-label">FRB・金利</div>
+        <div class="watch-content"><strong>6月FOMCとウォーシュ次期議長の方針</strong>：NFP▲9.2万人とPCE2.9%という矛盾したシグナルの下でどう動くか。フェドウォッチで6月据え置き予想が急落している。ウォーシュ氏が上院公聴会で何を語るかが最初のシグナル。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">5</div>
+        <div class="watch-label">DFC保険の実効性</div>
+        <div class="watch-content"><strong>200億ドルの保険提供（3月6日発表）が海運再開につながるか</strong>：海運業界は「停戦なしに通航しない」と発言しており、保険だけでは不十分な可能性が高い。タンカーの実際の航行再開が確認されるまで原油価格の下落余地は限定的。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">6</div>
+        <div class="watch-label">米国内政治</div>
+        <div class="watch-content"><strong>世論・ガソリン価格・議会</strong>：支持41%・不支持59%という歴史的低水準の世論とガソリン価格のさらなる上昇が中間選挙（11月）への政治的圧力を高める。原油100ドル超が維持されれば共和党議員からの批判発言が出始める可能性。これが停戦への最大の政治的動因。</div>
+      </div>
+      <div class="watch-item">
+        <div class="watch-num">7</div>
+        <div class="watch-label">信用買い残</div>
+        <div class="watch-content"><strong>東証の信用買い残5.5兆円（過去最高）</strong>：日経平均の下落局面での追加的な売り圧力となるリスク。5万円割れ接近時の強制解消売りが連鎖するシナリオに注意。日経平均53,874円（D+8）から5万円割れまでの下落余地は約8%。</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p>本資料は2026年3月7日時点の公開情報に基づく金融市場への影響整理です。投資助言ではありません。</p>
+  <p style="margin-top: 6px;">Sources: Nikkei · Bloomberg · Goldman Sachs · JPMorgan · Schroders · Capital Economics · 野村総研 · みずほ銀行</p>
+  <p style="margin-top: 8px; color: #b8b5ab;">Iran Crisis Market Impact Report · D+8 · 2026.03.07</p>
+</div>
+
+</body>
+</html>
