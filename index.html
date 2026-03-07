@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イラン情勢 客観的分析レポート 2026.02.28–03.07</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0d0f14;
+    --bg2: #13161e;
+    --bg3: #1a1e28;
+    --border: #2a2f3d;
+    --border2: #3a3f52;
+    --text: #c8cdd8;
+    --text2: #8890a4;
+    --text3: #555d72;
+    --accent: #c8a96e;
+    --accent2: #e8c98e;
+    --red: #d4615a;
+    --red2: #f07068;
+    --blue: #5a8fd4;
+    --blue2: #7aafef;
+    --green: #5ab87a;
+    --green2: #7ad89a;
+    --orange: #d4845a;
+    --orange2: #f0a47a;
+    --white: #e8ecf5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(180deg, #0a0c10 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(200,169,110,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(90,143,212,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.8;
+  }
+
+  .header h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+  }
+
+  .header-meta {
+    margin-top: 24px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .meta-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* ナビ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13, 15, 20, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .nav a {
+    display: block;
+    padding: 14px 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* メインレイアウト */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* セクション */
+  .section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 2px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+
+  /* 概要ボックス */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .summary-box {
+    background: var(--bg2);
+    padding: 24px;
+  }
+
+  .summary-box-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .summary-box-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .summary-box-value.red { color: var(--red2); }
+  .summary-box-value.orange { color: var(--orange2); }
+  .summary-box-value.accent { color: var(--accent2); }
+  .summary-box-value.blue { color: var(--blue2); }
+
+  .summary-box-note {
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* タイムライン */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tl-item:last-child {
+    border-bottom: none;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -36px;
+    top: 28px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border2);
+  }
+
+  .tl-dot.critical {
+    background: var(--red);
+    border-color: var(--red2);
+    box-shadow: 0 0 8px rgba(212, 97, 90, 0.4);
+  }
+
+  .tl-dot.milestone {
+    background: var(--accent);
+    border-color: var(--accent2);
+    box-shadow: 0 0 8px rgba(200, 169, 110, 0.4);
+  }
+
+  .tl-dot.info {
+    background: var(--blue);
+    border-color: var(--blue2);
+  }
+
+  .tl-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 24px 0 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .tl-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+
+  .tl-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    flex: 1;
+  }
+
+  .tl-phase {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .phase-1 { background: rgba(90, 184, 122, 0.15); color: var(--green2); border: 1px solid rgba(90, 184, 122, 0.3); }
+  .phase-2 { background: rgba(90, 143, 212, 0.15); color: var(--blue2); border: 1px solid rgba(90, 143, 212, 0.3); }
+  .phase-3 { background: rgba(212, 132, 90, 0.15); color: var(--orange2); border: 1px solid rgba(212, 132, 90, 0.3); }
+  .phase-pre { background: rgba(85, 93, 114, 0.3); color: var(--text2); border: 1px solid var(--border); }
+  .phase-ongoing { background: rgba(200, 169, 110, 0.15); color: var(--accent2); border: 1px solid rgba(200, 169, 110, 0.3); }
+
+  .tl-body {
+    padding-bottom: 24px;
+  }
+
+  .tl-events {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .event {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .event:first-child {
+    border-top: 1px solid var(--border2);
+  }
+
+  .event-category {
+    padding: 12px 16px 12px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-right: 1px solid var(--border);
+  }
+
+  .event-content {
+    padding: 12px 0 12px 16px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .event-content ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .event-content ul li::before {
+    content: '—';
+    color: var(--text3);
+    margin-right: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .highlight {
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .highlight-red { color: var(--red2); }
+  .highlight-blue { color: var(--blue2); }
+  .highlight-green { color: var(--green2); }
+
+  /* 作戦計画セクション */
+  .op-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .op-phase {
+    background: var(--bg2);
+    padding: 24px 20px;
+  }
+
+  .op-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .op-phase-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .op-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .status-done { background: rgba(90, 184, 122, 0.15); color: var(--green2); border: 1px solid rgba(90, 184, 122, 0.3); }
+  .status-progress { background: rgba(200, 169, 110, 0.15); color: var(--accent2); border: 1px solid rgba(200, 169, 110, 0.3); }
+  .status-pending { background: rgba(85, 93, 114, 0.2); color: var(--text3); border: 1px solid var(--border); }
+  .status-critical { background: rgba(212, 97, 90, 0.15); color: var(--red2); border: 1px solid rgba(212, 97, 90, 0.3); }
+
+  .op-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .op-items li::before {
+    content: '›';
+    color: var(--text3);
+    margin-right: 6px;
+  }
+
+  /* 勢力表 */
+  .alignment-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .alignment-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+    background: var(--bg2);
+  }
+
+  .alignment-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .alignment-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .alignment-table tr:hover td {
+    background: rgba(255,255,255,0.01);
+  }
+
+  .country {
+    font-weight: 500;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .stance-support { color: var(--red2); font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+  .stance-critical { color: var(--blue2); font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+  .stance-neutral { color: var(--text3); font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+  .stance-hostile { color: var(--orange2); font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+
+  /* 軍事ダメージ */
+  .damage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .damage-box {
+    background: var(--bg2);
+    padding: 24px;
+  }
+
+  .damage-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .damage-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .damage-item:last-child { border-bottom: none; }
+
+  .damage-label { color: var(--text2); }
+
+  .damage-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .damage-value.red { color: var(--red2); }
+  .damage-value.green { color: var(--green2); }
+  .damage-value.orange { color: var(--orange2); }
+  .damage-value.accent { color: var(--accent2); }
+
+  /* フッター */
+  .footer {
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .header, .container { padding-left: 20px; padding-right: 20px; }
+    .nav { padding: 0 20px; }
+    .op-grid { grid-template-columns: 1fr 1fr; }
+    .damage-grid { grid-template-columns: 1fr; }
+    .event { grid-template-columns: 100px 1fr; }
+    .header h1 { font-size: 22px; }
+    .tl-header { flex-wrap: wrap; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="container">
+    <div class="header-label">Situation Report · Iran Crisis 2026</div>
+    <h1>イラン情勢 客観的分析レポート</h1>
+    <div class="header-sub">2025年6月 ミッドナイト・ハンマー作戦 → 2026年2月28日 エピック・フューリー作戦開始 → 2026年3月7日（第8日）</div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">Report Date</span>
+        <span class="meta-value">2026.03.07</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Operation Day</span>
+        <span class="meta-value">D+8</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sources</span>
+        <span class="meta-value">Nikkei / Reuters / NYT / FT / AP / WSJ</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Scope</span>
+        <span class="meta-value">軍事・外交・実体経済（金融市場除く）</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ナビ -->
+<nav class="nav">
+  <a href="#overview">概況</a>
+  <a href="#timeline">タイムライン</a>
+  <a href="#operation">作戦計画</a>
+  <a href="#military">軍事状況</a>
+  <a href="#alignment">国際alignment</a>
+  <a href="#supply">サプライチェーン</a>
+  <a href="#outlook">今後の焦点</a>
+</nav>
+
+<div class="container">
+
+  <!-- 概況 -->
+  <section class="section" id="overview">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">概況サマリー（D+8時点）</h2>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-box">
+        <div class="summary-box-label">Confirmed Casualties (Iran)</div>
+        <div class="summary-box-value red">1,230人+</div>
+        <div class="summary-box-note">3月5日時点・民間人含む／イラン国営テレビ</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Iranian Missiles Reduced</div>
+        <div class="summary-box-value green">▲90%</div>
+        <div class="summary-box-note">弾道ミサイル攻撃・攻撃開始比／米中央軍</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Drone Attacks Reduced</div>
+        <div class="summary-box-value green">▲83%</div>
+        <div class="summary-box-note">ドローン攻撃・攻撃開始比／ケイン統参議長</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Iranian Vessels Sunk</div>
+        <div class="summary-box-value orange">30隻+</div>
+        <div class="summary-box-note">3月5日時点・海軍事実上壊滅</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Missile Launchers Destroyed</div>
+        <div class="summary-box-value accent">300基+</div>
+        <div class="summary-box-note">弾道ミサイル発射装置／イスラエル軍発表</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Tehran Attack Count</div>
+        <div class="summary-box-value red">168件</div>
+        <div class="summary-box-note">米東部時間3月4日午後4時時点／米戦争研究所</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Hormuz Trade Disrupted</div>
+        <div class="summary-box-value orange">世界2%</div>
+        <div class="summary-box-note">金額ベース世界海上貿易の2%が利用不能</div>
+      </div>
+      <div class="summary-box">
+        <div class="summary-box-label">Iran Storage Limit</div>
+        <div class="summary-box-value red">26日間</div>
+        <div class="summary-box-note">産油国タンク容量の限界／JPモルガン試算</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- タイムライン -->
+  <section class="section" id="timeline">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">事象タイムライン</h2>
+    </div>
+
+    <div class="timeline">
+
+      <!-- 前史 -->
+      <div class="tl-item">
+        <div class="tl-dot milestone"></div>
+        <div class="tl-header">
+          <span class="tl-date">2023.10.07</span>
+          <span class="tl-title">ハマスによるイスラエル奇襲攻撃</span>
+          <span class="tl-phase phase-pre">前史</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Background</div>
+              <div class="event-content">ガザ紛争の起点。イスラエルによる報復作戦開始。これ以降、イランの代理勢力（ハマス・ヒズボラ・フーシ）との間接的な緊張が高まり、2025年6月の直接軍事行動につながる伏線となる。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot milestone"></div>
+        <div class="tl-header">
+          <span class="tl-date">2025.06</span>
+          <span class="tl-title">ミッドナイト・ハンマー作戦（米単独）</span>
+          <span class="tl-phase phase-pre">前史</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>米国がイランの核関連施設を単独で爆撃</li>
+                <li>イスファハンのミサイル施設が破壊される（後に再建、今回の作戦で再度破壊）</li>
+                <li>今回の「エピック・フューリー作戦」の事前準備・情報収集の段階と位置づけられる</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot info"></div>
+        <div class="tl-header">
+          <span class="tl-date">2025.12</span>
+          <span class="tl-title">マール・ア・ラーゴ会談</span>
+          <span class="tl-phase phase-pre">前史</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Diplomacy</div>
+              <div class="event-content">トランプ・ネタニヤフ会談。イラン攻撃の合意形成が行われたとされる。イスラエルはテヘランの監視カメラを数年前からハッキングし、事前の情報収集を進めていた。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 開戦 -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.02.28</span>
+          <span class="tl-title">エピック・フューリー作戦開始</span>
+          <span class="tl-phase phase-1">Phase 1</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>24時間で1,000以上の標的を攻撃（イラク戦争開始時の<span class="highlight">約2倍</span>の規模）</li>
+                <li>最高指導者ハメネイ師含む指導部48人を排除</li>
+                <li>防空網・レーダー網・通信インフラを初日に壊滅</li>
+                <li>イラン海軍への攻撃開始</li>
+                <li>サイバー軍・宇宙軍が最初に動き、防空・通信システムを事前妨害</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Weapons</div>
+              <div class="event-content"><ul>
+                <li>新型ミサイル <span class="highlight">PrSM（プリズム）</span>：射程500km以上、初の実戦投入</li>
+                <li>自爆ドローン <span class="highlight">LUCAS</span>：イラン製シャヘドの逆用、製造コスト1〜5.5万ドル</li>
+                <li>AI標的選定システム <span class="highlight">MSS</span>：パランティア＋Anthropic Claude組み込み。標的選定要員を2,000人→20人に圧縮</li>
+                <li>礼拝アプリ「BadeSaba」をハッキング、「武器を置け」のメッセージを表示</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Statement</div>
+              <div class="event-content">米中央軍クーパー司令官：「海底から宇宙空間、サイバー空間まで24時間体制の作戦」</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月1日 -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.01</span>
+          <span class="tl-title">ハメネイ師死亡確認｜イラン海軍壊滅</span>
+          <span class="tl-phase phase-1">Phase 1</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>ハメネイ師死亡が公式に確認される</li>
+                <li>イラン海軍が事実上壊滅</li>
+                <li>UAE・ドバイのジュベル・アリ港を攻撃</li>
+                <li>オマーン・ドゥクム港を攻撃</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Politics (Iran)</div>
+              <div class="event-content"><ul>
+                <li>ラリジャニ主導の<span class="highlight">臨時指導評議会</span>が発足（3人体制）</li>
+                <li>ラリジャニ：「交渉しない」と強硬声明</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Diplomacy</div>
+              <div class="event-content">王毅外相・アラグチ外相が電話協議。中国の仲介姿勢が浮上。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月2日 -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.02</span>
+          <span class="tl-title">ホルムズ海峡封鎖宣言｜カタールLNG停止</span>
+          <span class="tl-phase phase-2">Phase 2</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Iran Action</div>
+              <div class="event-content"><ul>
+                <li>革命防衛隊がホルムズ海峡封鎖を宣言。「原油200ドルになる」と発言</li>
+                <li>カタール・ラスラファンLNG輸出基地が停止（世界LNG供給の<span class="highlight">約20%</span>・アジア向け約80%）</li>
+                <li>サウジアラビア・ラスタヌラ製油所をドローン攻撃</li>
+                <li>F-15戦闘機撃墜の報道</li>
+                <li>イラクが最大のルマイラ油田で<span class="highlight">日量300万バレル</span>の減産を開始</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Intl Response</div>
+              <div class="event-content"><ul>
+                <li>損保大手各社が戦争リスク補償を停止</li>
+                <li>日本海運3社（日本郵船・商船三井・川崎汽船）が中東航行を停止</li>
+                <li>コンテナ船大手APモラー・マースクが喜望峰迂回に切り替え</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">US Statement</div>
+              <div class="event-content">トランプ大統領：「作戦期間は4〜5週間と予測していたが、それより長期にわたって実行する能力がある」と発言。その後「最大の攻撃はこれから」へと発言をエスカレート。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月3日 -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.03</span>
+          <span class="tl-title">専門家会議施設攻撃｜三正面作戦｜潜水艦による撃沈</span>
+          <span class="tl-phase phase-2">Phase 2</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>イスラエルがコムの<span class="highlight">専門家会議施設を開票中に攻撃</span>（後継者選出の妨害が目的とされる）</li>
+                <li>テヘラン大統領府・最高安全保障委員会建物を攻撃</li>
+                <li>レバノンへ地上部隊を派遣（ガザ・レバノン・イランの<span class="highlight">三正面作戦</span>）</li>
+                <li>米潜水艦がインド洋でイラン軍艦を魚雷で撃沈（<span class="highlight">第二次世界大戦以来初</span>）</li>
+                <li>革命防衛隊本部（テヘラン北部）の複数建物が破壊</li>
+                <li>イラン南部ミナブの女学校が爆撃を受け<span class="highlight-red">160人以上が死亡</span>（校舎に隣接して革命防衛隊施設）</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Casualties</div>
+              <div class="event-content">攻撃による死者が<span class="highlight-red">787人</span>に達したと報告（この時点）。国連人権高等弁務官事務所（OHCHR）が調査を要請。</div>
+            </div>
+            <div class="event">
+              <div class="event-category">US Statement</div>
+              <div class="event-content"><ul>
+                <li>イラン国民向け：「抗議活動に出るな。外は極めて危険で、多くの爆弾が投下される」</li>
+                <li>「イランは海軍も空軍も壊滅した。航空警戒能力も失った。レーダー網も破壊され、ほぼ全ての軍事能力が失われている」</li>
+                <li>トランプ暗殺計画の司令官を追跡・殺害（ヘグセス国防長官発表）</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Iran Response</div>
+              <div class="event-content">アラグチ外相が「分散型モザイク防衛」という概念を公式に言及。指揮系統の混乱を戦略として正当化する姿勢を示す。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月3-4日 同盟の亀裂 -->
+      <div class="tl-item">
+        <div class="tl-dot info"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.03–04</span>
+          <span class="tl-title">西側同盟の亀裂が鮮明化</span>
+          <span class="tl-phase phase-ongoing">外交</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">France</div>
+              <div class="event-content"><ul>
+                <li>マクロン大統領：「国際法に反する形で実施された」とG7首脳で<span class="highlight">初の公式批判</span></li>
+                <li>原子力空母シャルル・ドゴールを地中海に派遣</li>
+                <li>ホルムズ通航再開のための「軍事手段を含む欧州独自連合」を提唱</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Germany</div>
+              <div class="event-content"><ul>
+                <li>メルツ首相が訪米し「体制転換を支持する」と表明</li>
+                <li>同時に「米国は将来の統治戦略を欠いている」と公式に苦言</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Spain</div>
+              <div class="event-content"><ul>
+                <li>サンチェス首相が基地使用を拒否</li>
+                <li>トランプ：「スペインとの貿易を全て断つ」と威嚇（ベッセント財務長官はぐらかす）</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">UK</div>
+              <div class="event-content"><ul>
+                <li>スターマー首相：「チャーチルの英国ではない」と発言</li>
+                <li>米英「特別な関係」に亀裂が生じる</li>
+                <li>キプロスに駆逐艦を派遣</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Turkey (NATO)</div>
+              <div class="event-content"><ul>
+                <li>イランのミサイルをNATO防衛システムで迎撃したと発表</li>
+                <li>フィダン外相がアラグチ外相に自制を求める電話会談</li>
+                <li>NATO第5条発動の問題が浮上（ただしトルコは外交的解決を優先）</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Indonesia / Malaysia</div>
+              <div class="event-content"><ul>
+                <li>インドネシア：ウラマー評議会がガザ和平計画からの撤退を要請</li>
+                <li>マレーシア：国会がイラン攻撃を全会一致で強く非難</li>
+                <li>両国で反米感情が急速に高まる</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月4日 -->
+      <div class="tl-item">
+        <div class="tl-dot info"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.04</span>
+          <span class="tl-title">トランプ「穏健な後継者」示唆｜タンカー護衛表明</span>
+          <span class="tl-phase phase-ongoing">外交</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">US Statement</div>
+              <div class="event-content"><ul>
+                <li>「内部から適任者を選ぶのが良い」＝ベネズエラモデルの明示的示唆</li>
+                <li>「イラク失敗の教訓：軍・警察を一掃したことでISが生まれた」と言及</li>
+                <li>ホワイトハウス：革命防衛隊内の融和的一派への期待を示唆</li>
+                <li>米海軍によるタンカー護衛を表明</li>
+                <li>DFC（米国際開発金融公社）に政治リスク保険提供を指示</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Regional</div>
+              <div class="event-content"><ul>
+                <li>UAE：イランからミサイル180発以上・ドローン800機以上を受けたと報告。イラン攻撃を検討</li>
+                <li>サウジアラビア：参戦の可能性が指摘される</li>
+                <li>日本関係船<span class="highlight">44隻</span>がペルシャ湾内に停泊（うち約30隻がタンカー・LNG船）</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月4-5日 モジュタバ -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.04–05</span>
+          <span class="tl-title">モジュタバ・ハメネイが最高指導者候補に浮上</span>
+          <span class="tl-phase phase-ongoing">政治</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Succession</div>
+              <div class="event-content"><ul>
+                <li>ハメネイ師次男・<span class="highlight">56歳</span>・筋金入りの反米強硬派</li>
+                <li>今回の攻撃で妻・母・親族を全て失う。個人的な復讐動機が加わる</li>
+                <li>世襲という1979年革命の理念との根本的矛盾</li>
+                <li>宗教的権威（アヤトラ）の称号を持たず、正統性に問題</li>
+                <li>米情報当局が最有力候補として把握していると発表</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Reactions</div>
+              <div class="event-content"><ul>
+                <li>イスラエル国防相：「就任した瞬間に確実に暗殺の標的となる」と公開警告</li>
+                <li>トランプ（3月6日）：「ハメネイの息子は受け入れがたい」と明言</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月5日 -->
+      <div class="tl-item">
+        <div class="tl-dot info"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.05</span>
+          <span class="tl-title">制空権制圧進展｜停戦報道で楽観後退</span>
+          <span class="tl-phase phase-2">Phase 2→3</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>ケイン統参議長：イランの弾道ミサイル発射数が<span class="highlight-green">86%減</span>、ドローン<span class="highlight-green">73%減</span></li>
+                <li>「イラン南部沿岸で制空権を確立、内陸部へさらに拡大中」</li>
+                <li>バンダルアバス（ホルムズ海峡近接）の海軍基地から黒煙が上がる衛星画像を確認</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Diplomacy</div>
+              <div class="event-content"><ul>
+                <li>NYT：「イランが外交ルートを通じ停戦を探っている」と報道</li>
+                <li>イラン・ペゼシュキアン大統領：「いくつかの国が仲介の取り組みを始めている」とSNSに投稿</li>
+                <li>カタールLNG「数週間で復旧」との見通し</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">US Domestic</div>
+              <div class="event-content"><ul>
+                <li>世論調査：攻撃支持<span class="highlight-red">41%</span>、不支持<span class="highlight">59%</span>（CNN）。湾岸戦争80%・アフガニスタン90%・イラク70%と比較して歴史的低水準</li>
+                <li>テキサス州民主党予備選：投票数が1970年以降最多</li>
+                <li>全米平均ガソリン価格3.19ドル（1ヶ月前比+10%）・軽油2年ぶり高値</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月6日 -->
+      <div class="tl-item">
+        <div class="tl-dot critical"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.06</span>
+          <span class="tl-title">「無条件降伏以外あり得ない」｜後継者選定への関与表明</span>
+          <span class="tl-phase phase-ongoing">政治</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">US Statement</div>
+              <div class="event-content"><ul>
+                <li>トランプ大統領がSNSに投稿：<span class="highlight">「イランとの合意は、無条件降伏以外ではあり得ない」</span></li>
+                <li>「偉大で受け入れられる指導者を選出した後、我々と多くの同盟国はイランを破滅の淵から救い出す」</li>
+                <li>前日（3月5日）に「後継者選定に私が関与しなければならない」と発言</li>
+                <li>「想定していた後継者候補の大半が作戦中に死亡した」と告白</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">US Policy</div>
+              <div class="event-content"><ul>
+                <li>DFCが中東での原油海上輸送に最大<span class="highlight">200億ドル（約3.1兆円）</span>の保険を提供すると発表</li>
+                <li>米財務省のベッセント長官：インドによるロシア産原油の購入を<span class="highlight">30日間容認</span>と発表（対ロシア制裁の実質的緩和）</li>
+                <li>NECハセット委員長：戦略石油備蓄（SPR）の放出は「議論されていない」と否定</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Energy</div>
+              <div class="event-content"><ul>
+                <li>カタールエネルギー相（FT報道）：「湾岸諸国の輸出業者は数日以内に生産を停止し、原油価格は150ドルまで上昇する」</li>
+                <li>クウェートが一部油田で減産開始（WSJ報道）</li>
+                <li>JPモルガン：代替輸送を考慮しても産油国のタンクは平均<span class="highlight-red">33日間</span>で容量の上限に達すると試算</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月7日 -->
+      <div class="tl-item">
+        <div class="tl-dot milestone"></div>
+        <div class="tl-header">
+          <span class="tl-date">2026.03.07</span>
+          <span class="tl-title">攻撃開始から1週間｜サプライチェーン全域に波及</span>
+          <span class="tl-phase phase-3">Phase 3 開始</span>
+        </div>
+        <div class="tl-body">
+          <div class="tl-events">
+            <div class="event">
+              <div class="event-category">Military</div>
+              <div class="event-content"><ul>
+                <li>米中央軍：弾道ミサイル攻撃<span class="highlight-green">90%減</span>・ドローン攻撃<span class="highlight-green">83%減</span>を確認</li>
+                <li>艦船30隻以上沈没・弾道ミサイル発射装置300基以上破壊を確認</li>
+                <li>死者数が<span class="highlight-red">1,230人</span>以上に（イラン国営テレビ）</li>
+                <li>革命防衛隊のゲリラ戦術・地下施設への移行が始まったとされる</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">Supply Chain</div>
+              <div class="event-content"><ul>
+                <li>三菱ガス化学：サウジからのメタノール調達が不能と発表</li>
+                <li>コマツ：「長期化シナリオも想定しなければならない」（執行役員）</li>
+                <li>コストコCFO：「燃料費や輸送スケジュールへの影響が長期化する可能性がある」</li>
+                <li>アリックス・パートナーズ：「状況が数週間続けば自動車や部材の工場停止につながる恐れがある」</li>
+                <li>インド・パキスタン・韓国：石油化学品・ガソリン供給不足の懸念が高まる</li>
+                <li>米国：3〜4月の作付けシーズンに向けた尿素輸入（カタール・オマーン産）が遅延リスク</li>
+              </ul></div>
+            </div>
+            <div class="event">
+              <div class="event-category">US Domestic</div>
+              <div class="event-content"><ul>
+                <li>NFP（非農業部門雇用者数）：前月比<span class="highlight-red">▲9.2万人</span>（市場予想+5〜6万人に対して大幅に乖離）</li>
+                <li>失業率：4.4%へ上昇</li>
+                <li>米10年国債利回り：4.1%台へ低下（スタグフレーション警戒）</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 作戦計画 -->
+  <section class="section" id="operation">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">4段階作戦計画と現状</h2>
+    </div>
+
+    <p style="color: var(--text2); font-size: 13px; margin-bottom: 24px; line-height: 1.8;">
+      信頼性の高い情報源により、4週間・4段階構成の作戦計画が確認されている。各段階はおおよそ1週間で進行する設計。軍事的な進行はほぼ計画通りとされる。
+    </p>
+
+    <div class="op-grid">
+      <div class="op-phase">
+        <div class="op-num">PHASE 01 · Week 1</div>
+        <div class="op-phase-title">防空網・指揮系統の無力化、制空権の確立</div>
+        <div class="op-status status-done">COMPLETED</div>
+        <ul class="op-items">
+          <li>防空網・レーダー網の壊滅</li>
+          <li>指揮系統の破壊（ハメネイ師含む指導部48人排除）</li>
+          <li>航空優勢の獲得</li>
+          <li>サイバー・宇宙軍による通信妨害</li>
+          <li>AI標的選定システムMSSの稼働</li>
+        </ul>
+      </div>
+      <div class="op-phase">
+        <div class="op-num">PHASE 02 · Week 2</div>
+        <div class="op-phase-title">海軍・ミサイル能力の排除、ホルムズ海峡の制圧</div>
+        <div class="op-status status-progress">IN PROGRESS</div>
+        <ul class="op-items">
+          <li>イラン海軍の壊滅（艦船30隻以上沈没）</li>
+          <li>弾道ミサイル発射装置300基以上を破壊</li>
+          <li>ミサイル攻撃90%減・ドローン83%減を達成</li>
+          <li>バンダルアバス海軍基地への攻撃</li>
+          <li>ホルムズ制圧は進行中（完全制圧は未達）</li>
+        </ul>
+      </div>
+      <div class="op-phase">
+        <div class="op-num">PHASE 03 · Week 3</div>
+        <div class="op-phase-title">革命防衛隊の排除・地下施設の破壊</div>
+        <div class="op-status status-critical">MOST DIFFICULT</div>
+        <ul class="op-items">
+          <li>ゲリラ戦術に転じた革命防衛隊の排除</li>
+          <li>地下施設の出入口を封鎖する戦略</li>
+          <li>バンカーバスター（大規模貫通爆弾）の使用</li>
+          <li>空爆と地下施設破壊の同時進行</li>
+          <li>民間施設との識別問題（女学校爆撃が典型例）</li>
+        </ul>
+      </div>
+      <div class="op-phase">
+        <div class="op-num">PHASE 04 · Week 4</div>
+        <div class="op-phase-title">残存戦力の排除・定期的監視体制の構築</div>
+        <div class="op-status status-pending">PENDING</div>
+        <ul class="op-items">
+          <li>この段階ではイランの組織的戦力は消失と想定</li>
+          <li>定期的な監視体制の構築</li>
+          <li>残存ミサイルの排除</li>
+          <li>民間・軍用車両の識別（トラック等）が継続課題</li>
+          <li>政治的出口戦略は別問題として残存</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 軍事状況 -->
+  <section class="section" id="military">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">軍事状況（D+8時点）</h2>
+    </div>
+
+    <div class="damage-grid">
+      <div class="damage-box">
+        <div class="damage-title">イランの損耗状況</div>
+        <div class="damage-item">
+          <span class="damage-label">弾道ミサイル攻撃</span>
+          <span class="damage-value red">▲90%減</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">ドローン攻撃</span>
+          <span class="damage-value red">▲83%減</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">海軍艦船沈没</span>
+          <span class="damage-value red">30隻以上</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">弾道ミサイル発射装置</span>
+          <span class="damage-value red">300基以上破壊</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">テヘランへの攻撃件数</span>
+          <span class="damage-value orange">168件（3月4日時点）</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">死者数（確認分）</span>
+          <span class="damage-value red">1,230人以上</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">防空網・レーダー網</span>
+          <span class="damage-value red">壊滅</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">制空権</span>
+          <span class="damage-value red">南部沿岸で喪失</span>
+        </div>
+      </div>
+
+      <div class="damage-box">
+        <div class="damage-title">イランの残存戦力</div>
+        <div class="damage-item">
+          <span class="damage-label">陸軍兵力</span>
+          <span class="damage-value accent">約61万人（温存）</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">ドローン製造能力</span>
+          <span class="damage-value orange">健在（シャヘド136等）</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">ドローン製造コスト</span>
+          <span class="damage-value accent">約2万ドル/機</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">迎撃コスト（対比）</span>
+          <span class="damage-value red">約400万ドル/発</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">地下施設ネットワーク</span>
+          <span class="damage-value orange">広範囲・詳細不明</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">残存弾道ミサイル数</span>
+          <span class="damage-value orange">不明（初期推定2,500発）</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">機雷散布能力</span>
+          <span class="damage-value orange">残存</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">革命防衛隊</span>
+          <span class="damage-value orange">地下・分散に移行中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 国際alignment -->
+  <section class="section" id="alignment">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">国際勢力図</h2>
+    </div>
+
+    <table class="alignment-table">
+      <thead>
+        <tr>
+          <th>国・地域</th>
+          <th>立場</th>
+          <th>主な行動・発言</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="country">米国</span></td>
+          <td><span class="stance-support">主導</span></td>
+          <td>2空母打撃群を展開。AI兵器・新型ミサイルを実戦投入。「無条件降伏以外あり得ない」。DFCによる3.1兆円の保険提供。対ロシア制裁を実質的に緩和（インドへの原油購入容認）。</td>
+        </tr>
+        <tr>
+          <td><span class="country">イスラエル</span></td>
+          <td><span class="stance-support">共同攻撃</span></td>
+          <td>ガザ・レバノン・イランの三正面作戦を継続。専門家会議施設の攻撃により後継者選出を妨害。モジュタバへの公開暗殺警告。</td>
+        </tr>
+        <tr>
+          <td><span class="country">サウジアラビア</span></td>
+          <td><span class="stance-support">支持・参戦検討</span></td>
+          <td>トランプへの攻撃促進（報道）。紅海経由の迂回輸送を拡大（ヤンブー港での積み出しが過去最高ペース）。参戦の可能性が指摘される。</td>
+        </tr>
+        <tr>
+          <td><span class="country">UAE</span></td>
+          <td><span class="stance-support">参戦検討</span></td>
+          <td>イランからミサイル180発以上・ドローン800機以上の攻撃を受け、反撃を検討。米総領事館でドローン攻撃による火災が発生（3月3日）。</td>
+        </tr>
+        <tr>
+          <td><span class="country">ドイツ</span></td>
+          <td><span class="stance-support">支持・苦言</span></td>
+          <td>メルツ首相が「体制転換を支持する」と表明。同時に「将来の統治戦略を欠いている」と批判。</td>
+        </tr>
+        <tr>
+          <td><span class="country">フランス</span></td>
+          <td><span class="stance-critical">批判・独自路線</span></td>
+          <td>「国際法に反する」とG7で初の公式批判。空母シャルル・ドゴールを地中海派遣。欧州独自の通航回復連合を提唱。</td>
+        </tr>
+        <tr>
+          <td><span class="country">英国</span></td>
+          <td><span class="stance-critical">距離を置く</span></td>
+          <td>「チャーチルの英国ではない」発言で米英特別関係に亀裂。キプロスに駆逐艦を派遣するも立場は曖昧。</td>
+        </tr>
+        <tr>
+          <td><span class="country">スペイン</span></td>
+          <td><span class="stance-critical">拒否</span></td>
+          <td>基地使用を拒否。トランプから「貿易を断つ」と威嚇される。</td>
+        </tr>
+        <tr>
+          <td><span class="country">トルコ（NATO）</span></td>
+          <td><span class="stance-neutral">中立・仲介志向</span></td>
+          <td>イランのミサイルをNATO防衛システムで迎撃。フィダン外相がアラグチ外相に自制を求める。NATO第5条の問題が浮上するも外交的解決を優先。</td>
+        </tr>
+        <tr>
+          <td><span class="country">中国</span></td>
+          <td><span class="stance-neutral">批判声明・仲介模索</span></td>
+          <td>王毅外相・アラグチ外相が電話協議（3月1日）。批判声明のみで実質的行動なし。エネルギー安全保障で深刻な打撃を受けている。3月末の米中会談が最初の外交的転換点となる可能性。</td>
+        </tr>
+        <tr>
+          <td><span class="country">ロシア</span></td>
+          <td><span class="stance-neutral">漁夫の利</span></td>
+          <td>原油高で制裁下でも収入増。米国のウクライナへの関与低下。プーチンはトランプ個人批判を避け漁夫の利を狙う。ドゥーギン：「イランが崩壊すれば次はわれわれの番だ」。</td>
+        </tr>
+        <tr>
+          <td><span class="country">インドネシア・マレーシア</span></td>
+          <td><span class="stance-hostile">強い反発</span></td>
+          <td>インドネシア：ガザ和平計画からの撤退を要請。マレーシア：国会が全会一致で強く非難。両国で反米感情が急速に高まる。</td>
+        </tr>
+        <tr>
+          <td><span class="country">日本</span></td>
+          <td><span class="stance-neutral">沈黙・直接被害</span></td>
+          <td>木原官房長官：「法的評価を差し控える」。関係船44隻がペルシャ湾内に停泊。NHKテヘラン支局長が収監中のエビン刑務所が爆撃被害。</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- サプライチェーン -->
+  <section class="section" id="supply">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">サプライチェーン・エネルギーへの影響</h2>
+    </div>
+
+    <div class="damage-grid">
+      <div class="damage-box">
+        <div class="damage-title">ホルムズ海峡の物理的制約</div>
+        <div class="damage-item">
+          <span class="damage-label">通過量（石油）</span>
+          <span class="damage-value red">日量1,900万バレル</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">世界海上石油シェア</span>
+          <span class="damage-value orange">25%</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">世界LNGシェア</span>
+          <span class="damage-value orange">20%</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">代替輸送能力（合計）</span>
+          <span class="damage-value accent">日量330〜340万バレル</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">代替率</span>
+          <span class="damage-value red">約18%</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">産油国タンク限界</span>
+          <span class="damage-value red">平均26〜33日間</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">世界貿易への影響</span>
+          <span class="damage-value orange">金額の約2%が利用不能</span>
+        </div>
+      </div>
+
+      <div class="damage-box">
+        <div class="damage-title">産業別影響（数週間継続した場合）</div>
+        <div class="damage-item">
+          <span class="damage-label">自動車生産</span>
+          <span class="damage-value orange">工場停止リスク</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">半導体・電子部品</span>
+          <span class="damage-value orange">航空貨物世界3%停滞</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">石油化学（ナフサ等）</span>
+          <span class="damage-value red">世界生産の40%が中東産</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">尿素（肥料）</span>
+          <span class="damage-value orange">米作付けシーズンに直撃</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">日本のLNG在庫</span>
+          <span class="damage-value red">約3週間分</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">日本の石油備蓄</span>
+          <span class="damage-value green">約175日分（OECD最高水準）</span>
+        </div>
+        <div class="damage-item">
+          <span class="damage-label">三菱ガス化学</span>
+          <span class="damage-value red">メタノール調達不能（発表済）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今後の焦点 -->
+  <section class="section" id="outlook">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">今後の焦点と監視指標</h2>
+    </div>
+
+    <div class="tl-events" style="border: 1px solid var(--border);">
+      <div class="event">
+        <div class="event-category" style="padding-left: 16px;">軍事</div>
+        <div class="event-content"><ul>
+          <li>第三段階（革命防衛隊・地下施設）の進行状況。1週間での完了は困難との見方が強い</li>
+          <li>バンカーバスターによる地下施設攻撃の実効性</li>
+          <li>機雷散布の有無（最も現実的な残存手段）</li>
+          <li>陸軍61万人の温存戦力の動向</li>
+        </ul></div>
+      </div>
+      <div class="event">
+        <div class="event-category" style="padding-left: 16px;">外交</div>
+        <div class="event-content"><ul>
+          <li><span class="highlight">米中会談（3月末）</span>：最初の外交的転換点。中国の仲介役としての機能が焦点</li>
+          <li>トルコを通じた間接交渉チャネルの有無</li>
+          <li>「無条件降伏」という要求条件の維持・変化</li>
+          <li>モジュタバ体制発足の有無とその後の展開</li>
+        </ul></div>
+      </div>
+      <div class="event">
+        <div class="event-category" style="padding-left: 16px;">エネルギー</div>
+        <div class="event-content"><ul>
+          <li>産油国の強制減産：貯蔵限界（26〜33日）に到達するかどうか</li>
+          <li>ゴールドマン・サックス：「1ヶ月で100ドル到達の可能性が高い」</li>
+          <li>シュローダー：「4〜5週間で100〜120ドル前後」</li>
+          <li>DFCによる3.1兆円の保険が海運再開につながるかどうか</li>
+        </ul></div>
+      </div>
+      <div class="event">
+        <div class="event-category" style="padding-left: 16px;">米国内政</div>
+        <div class="event-content"><ul>
+          <li>世論支持41%という低水準が下がり続けるかどうか</li>
+          <li>NFP▲9.2万人のスタグフレーション圧力</li>
+          <li>ガソリン価格の推移（中間選挙への政治的臨界点）</li>
+          <li>議会内共和党議員からの批判の有無</li>
+        </ul></div>
+      </div>
+      <div class="event" style="border-bottom: none;">
+        <div class="event-category" style="padding-left: 16px;">最大の未解決問題</div>
+        <div class="event-content"><ul>
+          <li>軍事的に制圧した後の<span class="highlight-red">政治的統治計画が存在しない</span></li>
+          <li>「想定していた後継者候補の大半が作戦中に死亡した」（トランプ）</li>
+          <li>「無条件降伏後に米国が受け入れられる指導者を選出する」という枠組みは、イラク・アフガニスタンと同様の構造的問題を内包している</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p>本資料は2026年3月7日時点の公開情報に基づく客観的な事実整理です。</p>
+  <p>Sources: Nikkei · Reuters · AP · NYT · FT · WSJ · IISS · ISW · Capital Economics · Goldman Sachs · JPMorgan · Kepler</p>
+  <p style="margin-top: 8px; color: #333d52;">Iran Crisis Situation Report · D+8 · 2026.03.07</p>
+</div>
+
+</body>
+</html>
