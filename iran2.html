@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イラン戦争分析レポート 2026年3月</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --bg: #0a0b0e;
+    --bg2: #111318;
+    --bg3: #1a1d24;
+    --accent: #c8a96e;
+    --accent2: #e85d3a;
+    --accent3: #4a9eff;
+    --text: #e8e4d9;
+    --text2: #9a9488;
+    --border: #2a2d34;
+    --danger: #ff4444;
+    --warning: #ff8c00;
+    --safe: #44aa66;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(200,169,110,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(232,93,58,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  h1 span {
+    color: var(--accent2);
+  }
+
+  .header-meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text2);
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+
+  .status-bar {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.8s;
+  }
+
+  .status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text2);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .dot-red { background: var(--danger); }
+  .dot-orange { background: var(--warning); }
+  .dot-blue { background: var(--accent3); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  /* MARKET DATA */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .market-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .market-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+  }
+
+  .market-card.up::before { background: var(--danger); }
+  .market-card.down::before { background: var(--safe); }
+  .market-card.neutral::before { background: var(--accent); }
+
+  .market-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text2);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .market-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+  }
+
+  .market-card.up .market-value { color: var(--danger); }
+  .market-card.down .market-value { color: var(--safe); }
+  .market-card.neutral .market-value { color: var(--accent); }
+
+  .market-change {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    margin-top: 4px;
+    color: var(--text2);
+  }
+
+  /* SECTION */
+  section {
+    margin-bottom: 60px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+
+  .section-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--accent);
+    background: var(--bg);
+    transform: rotate(45deg);
+  }
+
+  .timeline-item.critical::before {
+    background: var(--accent2);
+    border-color: var(--accent2);
+  }
+
+  .timeline-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .timeline-item.critical .timeline-title {
+    color: var(--accent2);
+  }
+
+  .timeline-body {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* ANALYSIS CARDS */
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .analysis-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 28px;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .analysis-card:hover {
+    border-color: var(--accent);
+    transition: border-color 0.3s ease;
+  }
+
+  .card-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .card-body {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* SCENARIO TABLE */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .scenario-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 24px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .scenario-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .scenario-A .scenario-label { color: var(--accent); }
+  .scenario-B .scenario-label { color: var(--accent3); }
+  .scenario-C .scenario-label { color: var(--safe); }
+  .scenario-D .scenario-label { color: var(--danger); }
+
+  .scenario-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .scenario-prob {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 12px 0;
+  }
+
+  .scenario-A .scenario-prob { color: var(--accent); }
+  .scenario-B .scenario-prob { color: var(--accent3); }
+  .scenario-C .scenario-prob { color: var(--safe); }
+  .scenario-D .scenario-prob { color: var(--danger); }
+
+  .scenario-desc {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* RISK GAUGE */
+  .risk-section {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin-bottom: 60px;
+  }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .risk-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .risk-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text2);
+    text-transform: uppercase;
+  }
+
+  .risk-bar {
+    height: 4px;
+    background: var(--bg3);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .risk-fill {
+    height: 100%;
+    border-radius: 2px;
+    animation: fillBar 1.5s ease forwards;
+  }
+
+  @keyframes fillBar {
+    from { width: 0; }
+  }
+
+  .risk-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* KEY POINTS */
+  .key-points {
+    display: grid;
+    gap: 12px;
+  }
+
+  .key-point {
+    display: flex;
+    gap: 16px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    align-items: flex-start;
+  }
+
+  .point-icon {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    min-width: 40px;
+    padding-top: 2px;
+  }
+
+  .point-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .point-text strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* JAPAN SECTION */
+  .japan-card {
+    background: var(--bg2);
+    border: 1px solid var(--accent);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .japan-card::before {
+    content: 'JAPAN';
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 80px;
+    color: rgba(200,169,110,0.05);
+    font-weight: bold;
+    letter-spacing: 4px;
+    pointer-events: none;
+  }
+
+  .japan-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .japan-option {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+
+  .option-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent2);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .option-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .option-desc {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+  }
+
+  .footer-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text2);
+    letter-spacing: 1px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* TAG */
+  .tag {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    border: 1px solid;
+    text-transform: uppercase;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .tag-red { border-color: var(--danger); color: var(--danger); }
+  .tag-orange { border-color: var(--warning); color: var(--warning); }
+  .tag-blue { border-color: var(--accent3); color: var(--accent3); }
+  .tag-gold { border-color: var(--accent); color: var(--accent); }
+
+  /* QUOTE */
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 20px 0;
+    background: var(--bg2);
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    color: var(--text2);
+    font-style: italic;
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    font-style: normal;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">CLASSIFIED ANALYSIS · MARCH 2026</div>
+  <h1>イラン戦争<span>1ヶ月</span>の軌跡<br>地政学・市場・日本の選択</h1>
+  <div class="header-meta">2026.02.28 — 2026.03.29 · 作戦開始D+1〜D+29</div>
+  <div class="status-bar">
+    <div class="status-item"><span class="status-dot dot-red"></span>ホルムズ海峡 事実上封鎖中</div>
+    <div class="status-item"><span class="status-dot dot-orange"></span>停戦交渉 進行中・難航</div>
+    <div class="status-item"><span class="status-dot dot-blue"></span>米海兵隊 中東展開完了</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- MARKET DATA -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>市場の現状（3月29日時点）</h2>
+    </div>
+    <div class="market-grid">
+      <div class="market-card up" style="animation-delay:0.1s">
+        <div class="market-label">WTI原油</div>
+        <div class="market-value">90ドル台</div>
+        <div class="market-change">↑ 攻撃前67ドルから急騰</div>
+      </div>
+      <div class="market-card down" style="animation-delay:0.2s">
+        <div class="market-label">ドル円</div>
+        <div class="market-value">160円台</div>
+        <div class="market-change">↓ 約1年8カ月ぶり円安水準</div>
+      </div>
+      <div class="market-card down" style="animation-delay:0.3s">
+        <div class="market-label">日経平均</div>
+        <div class="market-value">51,250円</div>
+        <div class="market-change">↓ 先物1,630円安</div>
+      </div>
+      <div class="market-card up" style="animation-delay:0.4s">
+        <div class="market-label">長期金利</div>
+        <div class="market-value">2.385%</div>
+        <div class="market-change">↑ 約27年ぶり高水準</div>
+      </div>
+      <div class="market-card neutral" style="animation-delay:0.5s">
+        <div class="market-label">ゴールド</div>
+        <div class="market-value">$4,100</div>
+        <div class="market-change">→ 安全資産として反発</div>
+      </div>
+      <div class="market-card up" style="animation-delay:0.6s">
+        <div class="market-label">米長期金利</div>
+        <div class="market-value">4.5%台</div>
+        <div class="market-change">↑ 利下げ期待後退</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>主要タイムライン</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" style="animation-delay:0.1s">
+        <div class="timeline-date">D+0 · 2026.02.28</div>
+        <div class="timeline-title">米・イスラエル合同作戦開始</div>
+        <div class="timeline-body">事前通告なしの奇襲攻撃。オマーン仲介の核協議の最中に開戦。穏健派ラリジャニ事務局長が攻撃で死亡。交渉窓口が消滅。</div>
+      </div>
+      <div class="timeline-item critical" style="animation-delay:0.15s">
+        <div class="timeline-date">D+9 · 3月8日</div>
+        <div class="timeline-title">WTI 119ドル・日経▲4,200円</div>
+        <div class="timeline-body">強硬派モジュタバ師が新指導者に就任。市場が最初のパニックを記録。ダイナミックサーキットブレーカー発動。</div>
+      </div>
+      <div class="timeline-item" style="animation-delay:0.2s">
+        <div class="timeline-date">D+10 · 3月10日</div>
+        <div class="timeline-title">TACOパターン第一回：「戦争はほぼ終了」</div>
+        <div class="timeline-body">トランプ発言で原油が119ドルから81ドルに急落。ロシア制裁解除示唆・プーチン電話協議。ウクライナをバーターにした取引構造が浮上。</div>
+      </div>
+      <div class="timeline-item" style="animation-delay:0.25s">
+        <div class="timeline-date">D+11 · 3月11日</div>
+        <div class="timeline-title">IEA史上最大4億バレル協調放出</div>
+        <div class="timeline-body">日量2,000万バレルの封鎖に対し日量120万バレルの放出。市場は無反応。国連安保理135カ国採択（露中棄権）。</div>
+      </div>
+      <div class="timeline-item critical" style="animation-delay:0.3s">
+        <div class="timeline-date">D+17 · 3月17日</div>
+        <div class="timeline-title">ケント国家テロ対策センター長官辞任</div>
+        <div class="timeline-body">「イランは差し迫った脅威ではなかった。イスラエルの圧力で始まった戦争」と告発。戦争の正当性への根本的な疑問が浮上。</div>
+      </div>
+      <div class="timeline-item" style="animation-delay:0.35s">
+        <div class="timeline-date">D+18 · 3月18日</div>
+        <div class="timeline-title">サウスパースガス田攻撃・カタールLNG報復</div>
+        <div class="timeline-body">イスラエル主導の攻撃。カタールLNG施設への報復攻撃。WTI100ドル突破。</div>
+      </div>
+      <div class="timeline-item critical" style="animation-delay:0.4s">
+        <div class="timeline-date">D+19 · 3月19日</div>
+        <div class="timeline-title">日米首脳会談（ワシントン）</div>
+        <div class="timeline-body">「真珠湾」発言・「NATOと違う」評価・11兆円投資合意。軍事的なNO・経済的なYES。日本65点・NATO80点という評価に落着。ウォルツ大使「自衛隊の支援を約束した」と主張。</div>
+      </div>
+      <div class="timeline-item critical" style="animation-delay:0.45s">
+        <div class="timeline-date">D+22 · 3月22日</div>
+        <div class="timeline-title">ディモナ（イスラエル核施設）攻撃</div>
+        <div class="timeline-body">170人以上負傷。核という最後の一線が破られる。フーシ参戦・バベルマンデブ封鎖の脅威が浮上。欧州が当事者化。</div>
+      </div>
+      <div class="timeline-item" style="animation-delay:0.5s">
+        <div class="timeline-date">D+23 · 3月23日</div>
+        <div class="timeline-title">トランプ「主要な点で合意した」</div>
+        <div class="timeline-body">イランが交渉の存在を否定。5日間の攻撃延期。TACOパターンの新しい形が確認。パキスタン仲介の枠組みが浮上。</div>
+      </div>
+      <div class="timeline-item critical" style="animation-delay:0.55s">
+        <div class="timeline-date">D+27 · 3月27日</div>
+        <div class="timeline-title">在沖縄第31海兵遠征部隊2,500人が中東到着</div>
+        <div class="timeline-body">トリポリに搭乗。カーグ島急襲作戦が可能な体制に。第11MEUも西海岸を出港。第82空挺師団への派遣命令。東アジアの安全保障の空洞化が確定。</div>
+      </div>
+      <div class="timeline-item" style="animation-delay:0.6s">
+        <div class="timeline-date">D+28 · 3月28日</div>
+        <div class="timeline-title">フーシ参戦・パキスタン船籍20隻通航</div>
+        <div class="timeline-body">フーシがエイラト近辺の軍事施設を攻撃。一方でパキスタン船籍20隻のホルムズ通航を認める。交渉と戦闘の同時進行。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK ASSESSMENT -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>リスク評価</h2>
+    </div>
+    <div class="risk-section">
+      <div class="risk-grid">
+        <div class="risk-item">
+          <div class="risk-label">戦争長期化リスク</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:85%;background:var(--danger)"></div></div>
+          <div class="risk-value">85% — 極めて高い</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-label">原油150ドル突破リスク</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:55%;background:var(--warning)"></div></div>
+          <div class="risk-value">55% — 中程度</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-label">カーグ島上陸作戦</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:70%;background:var(--warning)"></div></div>
+          <div class="risk-value">70% — 高い</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-label">台湾有事リスク上昇</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:60%;background:var(--accent3)"></div></div>
+          <div class="risk-value">60% — 在日米軍空洞化</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-label">プライベートクレジット危機</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:45%;background:var(--accent3)"></div></div>
+          <div class="risk-value">45% — 2兆ドル規模</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-label">早期停戦（4月9日）</div>
+          <div class="risk-bar"><div class="risk-fill" style="width:20%;background:var(--safe)"></div></div>
+          <div class="risk-value">20% — 低い</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY ANALYSIS -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>核心的な分析</h2>
+    </div>
+    <div class="analysis-grid">
+      <div class="analysis-card" style="animation-delay:0.1s">
+        <div class="card-tag">TACO PATTERN</div>
+        <div class="card-title">トランプを止めるのはマーケットだけ</div>
+        <div class="card-body">強硬発言→市場の圧力→撤回というサイクルが今月だけで複数回確認。発言ではなく行動と数字だけを見るという原則が今月の最重要教訓。株安・債券安・ゴールド安・原油急騰という四資産同時の動きがTACO発動のシグナル。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.2s">
+        <div class="card-tag">IRAN STRATEGY</div>
+        <div class="card-title">負けないことが目標の消耗戦戦略</div>
+        <div class="card-body">ヒズボラ・ハマス・フーシという代理勢力ネットワークを40年かけて構築。ホルムズという地の利による消耗戦への引き込み。核開発の時間稼ぎ。ベトナム・アフガン・イラクという米国撤退の歴史を学んだ戦略設計。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.3s">
+        <div class="card-tag">NUCLEAR PROBLEM</div>
+        <div class="card-title">花崗岩100mという物理的な壁</div>
+        <div class="card-body">ピックアックス山の核施設は花崗岩100メートルに守られ通常兵器では破壊不可能。核使用は政治的・外交的に実行不可能。地上作戦でも深部制圧は困難。軍事的には解決不能という根本的な詰将棋。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.4s">
+        <div class="card-tag">PETRODOLLAR</div>
+        <div class="card-title">ホルムズ通行料と覇権の終焉</div>
+        <div class="card-body">イランの最低条件はホルムズ通行料の人民元建て徴収。これはペトロダラー体制への直接的な挑戦。ロゴフ教授「4〜5年以内に金融ショック」という予測と直結。米国が絶対に受け入れられない要求が交渉を不可能にしている。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.5s">
+        <div class="card-tag">ISRAEL FACTOR</div>
+        <div class="card-title">止まらないイスラエルという変数</div>
+        <div class="card-body">トランプが外交を模索している間にイスラエルが単独でエスカレート。ザミール参謀総長「まだ半分しか終えていない」。ディモナへの攻撃がさらなる報復を招く連鎖。ケント告発通り「イスラエルの圧力で始まった戦争」の帰結。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.6s">
+        <div class="card-tag">HONOR DESIGN</div>
+        <div class="card-title">名誉の設計という交渉の核心</div>
+        <div class="card-body">双方が負けていないと解釈できる曖昧な余白の設計が停戦の唯一の糸口。トランプは勝利を示す必要があり、イランは屈していない物語が必要。19世紀的帝国主義で始めた戦争が非対称戦の泥沼に変容している。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>シナリオ分析</h2>
+    </div>
+    <div class="scenario-grid">
+      <div class="scenario-card scenario-A" style="animation-delay:0.1s">
+        <div class="scenario-label">SCENARIO A · 最有力</div>
+        <div class="scenario-name">曖昧な終結</div>
+        <div class="scenario-prob">40%</div>
+        <div class="scenario-desc">勝利宣言しながら実態は撤収。核問題未解決・革命防衛隊残存・次の危機の種を残したまま。4月9日前後に曖昧な停戦合意。</div>
+      </div>
+      <div class="scenario-card scenario-B" style="animation-delay:0.2s">
+        <div class="scenario-label">SCENARIO B</div>
+        <div class="scenario-name">カーグ島占拠による締め上げ完成</div>
+        <div class="scenario-prob">25%</div>
+        <div class="scenario-desc">地上作戦でカーグ島を占拠。イランの石油収入を遮断。体制の自壊を待つ長期戦。核問題は未解決のまま。</div>
+      </div>
+      <div class="scenario-card scenario-C" style="animation-delay:0.3s">
+        <div class="scenario-label">SCENARIO C</div>
+        <div class="scenario-name">米中会談による外交解決</div>
+        <div class="scenario-prob">15%</div>
+        <div class="scenario-desc">4月下旬〜5月の米中会談で中国がイランへの圧力をかける。影の船団停止と引き換えに関税緩和・台湾現状維持という大型ディール。</div>
+      </div>
+      <div class="scenario-card scenario-D" style="animation-delay:0.4s">
+        <div class="scenario-label">SCENARIO D · 最悪</div>
+        <div class="scenario-name">全面戦争・世界スタグフレーション</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-desc">イスラエルの暴走→ディモナ報復拡大→機雷大量敷設→フーシ・バベルマンデブ封鎖完成→原油200ドル→世界同時スタグフレーション。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAPAN CHOICE -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>日本が迫られる三択</h2>
+    </div>
+    <div class="japan-card">
+      <div class="card-tag">JAPAN'S STRATEGIC CHOICE</div>
+      <p style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:8px">
+        在沖縄海兵隊の完全撤退・カーグ島上陸作戦の実行確率70%・機雷掃海要請の時間軸が数週間以内という状況において、日本は戦後80年間先送りにしてきた問いへの答えを迫られている。
+      </p>
+
+      <blockquote>
+        「日米関係を守るのが日本の究極的な目的ではないはずです。それでは本当に属国でしかない」
+        <cite>— 本分析における核心的評価</cite>
+      </blockquote>
+
+      <div class="japan-options">
+        <div class="japan-option">
+          <div class="option-num">OPTION 01</div>
+          <div class="option-name">米国との同盟維持</div>
+          <div class="option-desc">機雷掃海への条件付き参加。防衛費増額加速。属国という構造が固定化されるが安全保障の継続性は保たれる。</div>
+        </div>
+        <div class="japan-option">
+          <div class="option-num">OPTION 02</div>
+          <div class="option-name">中国側への転換</div>
+          <div class="option-desc">人民元建て決済参加・イランとの関係強化。エネルギー安全保障として合理的だが別の属国への移行リスク。</div>
+        </div>
+        <div class="japan-option">
+          <div class="option-num">OPTION 03</div>
+          <div class="option-name">中規模国連合</div>
+          <div class="option-desc">カナダ・欧州・ASEAN・インドとの多角的な枠組み構築。一時的な安全保障の空洞化リスクを取りながらビジョンある自立を目指す。</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px">
+        <div class="tag tag-red">機雷掃海 YES or NO</div>
+        <div class="tag tag-orange">数週間以内に決断</div>
+        <div class="tag tag-blue">台湾有事確率と連動</div>
+        <div class="tag tag-gold">年末 国家安保戦略改定</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY PRINCIPLES -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>今月確立された原則</h2>
+    </div>
+    <div class="key-points">
+      <div class="key-point" style="animation-delay:0.1s">
+        <div class="point-icon">P.01</div>
+        <div class="point-text"><strong>発言ではなく行動と数字だけを見よ。</strong>トランプの発言は毎日変わる。原油価格・株価・軍の実際の展開だけが真実を語る。</div>
+      </div>
+      <div class="key-point" style="animation-delay:0.15s">
+        <div class="point-icon">P.02</div>
+        <div class="point-text"><strong>株が上がれば成功、下がれば失敗。</strong>外交的な評価・専門家のコメントより市場という最も正直な評価者の答えが全て。</div>
+      </div>
+      <div class="key-point" style="animation-delay:0.2s">
+        <div class="point-icon">P.03</div>
+        <div class="point-text"><strong>TACOパターン：強硬→市場圧力→撤回。</strong>四資産（株・債券・ゴールド・原油）同時悪化が次のTACO発動のシグナル。</div>
+      </div>
+      <div class="key-point" style="animation-delay:0.25s">
+        <div class="point-icon">P.04</div>
+        <div class="point-text"><strong>イランは負けないことが目標。</strong>勝利ではなく体制の生存と核完成までの時間稼ぎ。米国が疲弊して撤退するまで代理勢力で消耗させ続ける戦略。</div>
+      </div>
+      <div class="key-point" style="animation-delay:0.3s">
+        <div class="point-icon">P.05</div>
+        <div class="point-text"><strong>曖昧さには必ず代償がある。</strong>日本の曖昧戦略は短期的に機能したが、米国にYESと解釈されて次の要請での逃げ場が失われた。</div>
+      </div>
+      <div class="key-point" style="animation-delay:0.35s">
+        <div class="point-icon">P.06</div>
+        <div class="point-text"><strong>ロゴフの警告を無視するな。</strong>4〜5年以内の金融ショック・ドル覇権の低下・プライベートクレジット2兆ドルの崩壊リスクが今月のイラン戦争と連動している。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCHLIST -->
+  <section>
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>来週の最重要監視指標</h2>
+    </div>
+    <div class="analysis-grid">
+      <div class="analysis-card" style="animation-delay:0.1s;border-color:var(--danger)">
+        <div class="card-tag" style="color:var(--danger)">CRITICAL · 4月6日</div>
+        <div class="card-title">トランプの攻撃延期期限</div>
+        <div class="card-body">イスラマバード会談が成果を出せなければ発電所攻撃が再開。原油103ドル突破の可能性。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.2s;border-color:var(--warning)">
+        <div class="card-tag" style="color:var(--warning)">HIGH · 数週間以内</div>
+        <div class="card-title">カーグ島上陸作戦の実行</div>
+        <div class="card-body">第31MEU到着完了。確率70%。実行された瞬間に機雷掃海要請が日本に来る。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.3s;border-color:var(--accent3)">
+        <div class="card-tag" style="color:var(--accent3)">WATCH · 今週</div>
+        <div class="card-title">日本の機雷掃海 YES or NO</div>
+        <div class="card-body">ウォルツ大使の既成事実・茂木外相の発言。曖昧さが通用しない最初の局面。</div>
+      </div>
+      <div class="analysis-card" style="animation-delay:0.4s">
+        <div class="card-tag">MONITOR · 4月下旬</div>
+        <div class="card-title">米中首脳会談</div>
+        <div class="card-body">イラン戦争を理由に延期。シナリオCの唯一の鍵。中国がイランへの圧力をかけるかどうか。</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-note">IRAN WAR ANALYSIS REPORT · 2026.03.29 · D+29</div>
+  <div class="footer-note">本レポートは公開情報に基づく分析です</div>
+</footer>
+
+</body>
+</html>
